@@ -3,10 +3,12 @@ import heapq
 
 INPUT_FILE_LOCATION = os.path.join(os.path.dirname(__file__), "input")
 
+
 def parse_input():
     with open(INPUT_FILE_LOCATION, "r") as input_file:
         file_content = input_file.read()
     return file_content.strip().split(os.linesep)
+
 
 def get_part_one_solution(splitted_data: list[str]) -> str:
     sum_elf = 0
@@ -17,8 +19,8 @@ def get_part_one_solution(splitted_data: list[str]) -> str:
             sum_elf = 0
         else:
             sum_elf += int(each_line)
-        
     return max_sum_calories
+
 
 def get_part_two_solution(splitted_data: list[str]) -> str:
     top_list = []
@@ -34,10 +36,12 @@ def get_part_two_solution(splitted_data: list[str]) -> str:
 
     return sum(top_list)
 
+
 def main():
     input = parse_input()
     print(f"Solution 1: {get_part_one_solution(input)}")
     print(f"Solution 2: {get_part_two_solution(input)}")
+
 
 if __name__ == "__main__":
     main()

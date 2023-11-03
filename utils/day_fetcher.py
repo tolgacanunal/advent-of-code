@@ -15,8 +15,10 @@ parser = argparse.ArgumentParser(
 parser.add_argument("year")
 parser.add_argument("day")
 
+
 def fetch_day_input(cookie: str, day: str, year: str) -> str:
     return requests.get(f"https://adventofcode.com/{year}/day/{day}/input", headers={"Cookie": cookie}).text
+
 
 def main():
     cookie = os.environ.get('AOC_COOKIE')
