@@ -9,18 +9,18 @@ def parse_input():
     return file_content
 
 
-def get_part_one_solution(input) -> str:
+def get_part_one_solution(s: str) -> str:
     return "not solved yet."
 
 
-def get_part_two_solution(input) -> str:
+def get_part_two_solution(s: str) -> str:
     return "not solved yet."
 
 
 def main():
-    input = parse_input()
-    print(f"Solution 1: {get_part_one_solution(input)}")
-    print(f"Solution 2: {get_part_two_solution(input)}")
+    s = parse_input()
+    print(f"Solution 1: {get_part_one_solution(s)}")
+    print(f"Solution 2: {get_part_two_solution(s)}")
 
 
 if __name__ == "__main__":
