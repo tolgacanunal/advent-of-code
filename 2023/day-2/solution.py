@@ -20,7 +20,7 @@ def parse_input():
     return prefix_removed
 
 
-def do_operation_for_each_line(
+def do_operation_for_game_maximums(
     prefix_removed,
     each_line_needed_func: Callable[[int, int, int], int]
 ) -> str:
@@ -50,14 +50,14 @@ def get_part_one_solution(prefix_removed: str) -> str:
         else:
             return 0
 
-    return do_operation_for_each_line(prefix_removed, operation)
+    return do_operation_for_game_maximums(prefix_removed, operation)
 
 
 def get_part_two_solution(s: str) -> str:
-    def operation(_, red, green, blue) -> int:
-        return blue * red * green
+    def operation(_, max_red, max_green, max_blue) -> int:
+        return max_blue * max_red * max_green
 
-    return do_operation_for_each_line(s, operation)
+    return do_operation_for_game_maximums(s, operation)
 
 
 def main():
