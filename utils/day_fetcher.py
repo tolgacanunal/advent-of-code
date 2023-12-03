@@ -22,7 +22,7 @@ def fetch_day_input(cookie: str, day: str, year: str) -> str:
 
 def main():
     cookie = os.environ.get('AOC_COOKIE')
-    assert(cookie)
+    assert (cookie)
 
     args = parser.parse_args()
     day, year = args.day, args.year
