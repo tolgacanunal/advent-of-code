@@ -18,10 +18,8 @@ def parse_card_raw(card_raw) -> Tuple[Set[str], Set[str]]:
     winning_cards_raw, players_card_raw = card_raw.split(" | ")
     winning_cards = set(winning_cards_raw.split(" "))
     player_cards = set(players_card_raw.split(" "))
-    if '' in winning_cards:
-        winning_cards.remove('')
-    if '' in player_cards:
-        player_cards.remove('')
+    winning_cards.discard('')
+    player_cards.discard('')
     return (winning_cards, player_cards)
 
 
@@ -40,13 +38,13 @@ def get_part_two_solution(parsed_card_list: list[Tuple[Set[str], Set[str]]]) -> 
     total_count = 0
     scratch_card_count_hashmap = defaultdict(lambda: 1)
     for index, (winning_cards, players_cards) in enumerate(parsed_card_list):
-        for _ in range(0, scratch_card_count_hashmap[index]):
+        for _ in range(scratch_card_count_hashmap[index]):
             winning_count = 0
             for p_card in players_cards:
                 if p_card in winning_cards:
                     winning_count += 1
-            for i in range(index + 1, index + 1 + winning_count):
-                scratch_card_count_hashmap[i] += 1
+            for i in range(winning_count):
+                scratch_card_count_hashmap[index + 1 + i] += 1
         total_count += scratch_card_count_hashmap[index]
     return total_count
 
