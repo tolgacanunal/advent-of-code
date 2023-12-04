@@ -36,13 +36,13 @@ def get_part_one_solution(parsed_card_list: list[Tuple[Set[str], Set[str]]]) -> 
 
 def get_part_two_solution(parsed_card_list: list[Tuple[Set[str], Set[str]]]) -> str:
     total_count = 0
-    scratch_card_count_hashmap = [1 for _ in range(len(parsed_card_list))]
+    scratch_card_count_list = [1 for _ in range(len(parsed_card_list))]
     for index, (winning_cards, players_cards) in enumerate(parsed_card_list):
-        multiplier = scratch_card_count_hashmap[index]
+        multiplier = scratch_card_count_list[index]
         winning_count = len(players_cards.intersection(winning_cards))
         for i in range(min(winning_count, len(parsed_card_list))):
-            scratch_card_count_hashmap[index + 1 + i] += multiplier
-        total_count += scratch_card_count_hashmap[index]
+            scratch_card_count_list[index + 1 + i] += multiplier
+        total_count += scratch_card_count_list[index]
     return total_count
 
 
