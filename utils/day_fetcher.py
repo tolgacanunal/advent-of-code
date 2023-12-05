@@ -17,7 +17,10 @@ parser.add_argument("day")
 
 
 def fetch_day_input(cookie: str, day: str, year: str) -> str:
-    return requests.get(f"https://adventofcode.com/{year}/day/{day}/input", headers={"Cookie": cookie}).text
+    return requests.get(
+        f"https://adventofcode.com/{year}/day/{day}/input",
+        headers={"Cookie": f"session={cookie}"}
+    ).text
 
 
 def main():
