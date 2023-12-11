@@ -30,7 +30,7 @@ def main():
     args = parser.parse_args()
     day, year = args.day, args.year
 
-    folder = f"{MAIN_FOLDER}/{year}/day-{day}"
+    folder = f"{MAIN_FOLDER}/{year}/day-{day if day >= 10 else '0'+day}"
 
     if os.path.exists(folder):
         print("Day already exists")
